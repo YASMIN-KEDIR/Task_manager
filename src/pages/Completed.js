@@ -16,6 +16,7 @@ Completed Tasks ✅
 Your finished work.
 </p>
 
+<TaskList onlyCompleted={true}/>
 
 </div>
 

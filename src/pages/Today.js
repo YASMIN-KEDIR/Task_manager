@@ -1,5 +1,5 @@
 import React from "react";
-
+import TaskList from "../components/TaskList";
 
 const Today = () => {
 
@@ -15,6 +15,7 @@ Today's Tasks 📅
 Focus on what needs to be done today.
 </p>
 
+<TaskList onlyToday={true}/>
 
 </div>
 

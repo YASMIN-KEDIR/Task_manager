@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import NavBar from "./components/NavBar";
 import TaskForm from "./components/TaskForm";
 import TaskList from "./components/TaskList";
-
+import CreateTask from "./pages/CreateTask"
 import Dashboard from "./pages/Dashboard";
 import Tasks from "./pages/Tasks";
 import Completed from "./pages/Completed";
@@ -25,13 +25,15 @@ return (
 
 <Routes>
 
+  <Route path="/today" element={<Today/>}/>
+
 <Route path="/" element={<Dashboard/>}/>
 
 <Route path="/tasks" element={<Tasks/>}/>
 
 <Route path="/completed" element={<Completed/>}/>
 
-<Route path="/today" element={<Today/>}/>
+<Route  path="/tasks/create" element={<CreateTask />}  />
 
 
 </Routes>

@@ -22,6 +22,10 @@ const Navbar = () => {
           Dashboard
         </NavLink>
 
+        <NavLink to="/today" className="text-blue-100 hover:text-cyan-400">
+  Today
+</NavLink>
+
 
         <NavLink 
           to="/tasks"

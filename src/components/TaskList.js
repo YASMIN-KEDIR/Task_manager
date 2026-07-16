@@ -4,7 +4,7 @@ import TaskItem from './TaskItem';
 import SearchBar from '../components/SearchBar'
 import FilterBar from '../components/FilterBar'
 
-const TaskList = ({ refresh, onlyCompleted=false }) => {
+const TaskList = ({ refresh, onlyCompleted=false, onlyToday=false }) => {
   const [tasks, setTasks] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -37,6 +37,17 @@ const TaskList = ({ refresh, onlyCompleted=false }) => {
     );
   }
 
+  if(onlyToday){
+
+  const today = new Date()
+    .toISOString()
+    .split("T")[0];
+
+  filteredTasks = filteredTasks.filter(
+    task => task.dueDate === today
+  );
+
+}
 
   // Search
   filteredTasks = filteredTasks.filter(task =>

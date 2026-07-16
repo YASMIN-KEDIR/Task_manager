@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import { createTask } from '../services/api';
+import { useNavigate } from 'react-router-dom';
 
 const TaskForm = ({ onTaskCreated }) => {
+
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState({
     title: '',
     description: '',
@@ -15,17 +19,29 @@ const TaskForm = ({ onTaskCreated }) => {
       [e.target.name]: e.target.value
     });
   };
+const handleSubmit = async (e) => {
+  e.preventDefault();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await createTask(formData);
-      setFormData({ title: '', description: '', priority: 'MEDIUM', dueDate: '' });
+  try {
+    await createTask(formData);
+
+    setFormData({
+      title: '',
+      description: '',
+      priority: 'MEDIUM',
+      dueDate: ''
+    });
+
+   if (onTaskCreated) {
       onTaskCreated();
-    } catch (error) {
-      console.error('Error creating task:', error);
     }
-  };
+
+    navigate("/tasks");
+
+  } catch (error) {
+    console.error("Error creating task:", error);
+  }
+};
 
  return (
   <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-3xl shadow-2xl p-8">
