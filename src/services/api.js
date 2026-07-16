@@ -49,3 +49,8 @@ export const completeTask = (id) => {
     return axiosBase.patch(`${id}/complete`);
     // PATCH http://localhost:8080/api/tasks/1/complete
 };
+
+export const startTask = (id) => {
+    return axiosBase.patch(`${id}/start`);
+    // PATCH http://localhost:8080/api/tasks/1/start
+};
